@@ -1,0 +1,29 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Avatar</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let teacher of users">
+        <td>{{ teacher.id }}</td>
+        <td><app-table-name [name]="teacher.name"></app-table-name></td>
+        <td> {{ teacher.age }}</td>
+        <td>
+            <app-table-gender [gender]="teacher.gender"></app-table-gender>
+        </td>
+        <!-- <td> {{ teacher.gender ? 'Nam' : 'Nữ' }}</td> -->
+        <td> <img src="{{ teacher.avatar}}" alt="" height="100px"></td>
+        <!-- Có thể sd []  -->
+        <!-- <td> <img [src]="teacher.avatar" alt="" height="100px"></td> -->
+        <td>
+            <app-table-status [status]="teacher.status"></app-table-status>
+        </td>
+      </tr>
+    </tbody>
+  </table>
