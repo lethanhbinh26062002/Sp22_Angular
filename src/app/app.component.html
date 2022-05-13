@@ -376,10 +376,17 @@
                   <h2>Resources</h2>
                   <p>Here are some links to help you get started:</p>
                   <!--  -->
-                  <app-table [users]="teachers"></app-table>
-                  <button class="btn btn-primary">DSSV</button>
+                  <button (click)="changeStatus()" class="btn btn-primary" >{{status ? 'Ẩn' : 'Hiện'}} bảng DS teacher</button>
+                  <app-table [users]="teachers" *ngIf="status"></app-table>
+                  <button (click)="clickH1()" class="btn btn-primary">DSSV {{schoolName}}</button>
                   <div>
                     Tên sv : <app-name [name]="name"></app-name> 
                     Mã sv: <app-identity [identity]="id"></app-identity>
+                  </div>
+                  <div>
+                    <h5>{{valueInput}}</h5>
+                    <form action="">
+                      <input type="text" (keydown)="changeInput($event)">
+                    </form>
                   </div>
                   <router-outlet></router-outlet>
