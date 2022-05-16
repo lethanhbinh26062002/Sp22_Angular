@@ -57,4 +57,45 @@ export class AppComponent {
   changeInput(event: any){
     this.valueInput = event.target.value
   }
+
+  //Hàm nhận giá trị từ Input
+  inputValue = {
+    name: '', 
+    age: '',
+    gender: '',
+    avatar: '',
+    status: '',
+  } 
+  // onInputName(event: any,info : string) {
+  //   console.log(event.target.value, info);
+  //   this.inputValue['name'] = event.target.value
+    
+  // }
+  // onInputAge(event: any,info : string) {
+  //   console.log(event.target.value, info);
+  //   this.inputValue['age'] = event.target.value
+    
+  // }
+  onInput(event: any, key : 'name' | 'age' | 'gender' | 'avatar' | 'status'){ // key: 'name','age' -> key chỉ đc là giá trị thuộc inputValue
+    this.inputValue[key] = event.target.value
+  }
+  submitForm() {
+    console.log(this.inputValue);
+    //Thêm dữ liêu từ form vào mảng teacher
+    this.teachers.push({
+      ...this.inputValue,
+      age: +this.inputValue.age, // đưa age từ chuỗi về số
+      gender: +this.inputValue.gender,
+      status: + this.inputValue.status,
+      id: this.teachers.length + 1
+    })
+    // Cập nhật lại giá trị cho form 
+    this.inputValue = {
+      name:'',
+      age: '',
+      gender: '',
+      avatar: '',
+      status: '',
+    }
+  }
 }
