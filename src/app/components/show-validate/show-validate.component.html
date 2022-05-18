@@ -1,4 +1,5 @@
 <span *ngIf="(field.dirty || field.touched) && field.errors?.['required']" class="text-warning">Nhập {{key}} user</span>
-<span *ngIf="(field.dirty || field.touched) && field.errors?.['minlength']" class="text-warning">{{key}} không đc dưới 6 ký tự</span>
-<span *ngIf="(field.dirty || field.touched) && field.errors?.['min']" class="text-warning"> Nhập {{key}} > 0 </span>
-<span *ngIf="(field.dirty || field.touched) && field.errors?.['max']" class="text-warning"> Nhập {{key}} < 100 </span>
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['minlength']" class="text-warning">{{key}} không đc dưới {{field.errors?.['minlength'].requiredLength}} ký tự</span>
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['min']" class="text-warning"> Nhập {{key}} > {{field.errors?.['min'].min}} </span>
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['max']" class="text-warning"> Nhập {{key}} < {{field.errors?.['max'].max}} </span>
+<span *ngIf="(field.dirty || field.touched) && field.errors?.['email']" class="text-warning">{{key}} chưa đúng định dạng</span>
