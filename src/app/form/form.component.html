@@ -11,10 +11,10 @@
         required minlength="6"
         #name="ngModel"
         >
+        <!-- #name & #age là key để bắt lỗi trong input -->
         <!--<p>{{name.errors | json}}</p>  check lỗi -->
         <!-- .dirty dùng cho máy tính && .touched dùng cho đt khi ng dùng tương tác vs input thì mời hiển thị lỗi -->
-        <span *ngIf="(name.dirty || name.touched) && name.errors?.['required']" class="text-warning">Nhập tên user</span>
-        <span *ngIf="(name.dirty || name.touched) && name.errors?.['minlength']" class="text-warning">Tên không đc dưới 6 ký tự</span>
+        <app-show-validate [field]="name" key="Tên"></app-show-validate>
     </div>
     <div class="form-group">
         <label for="">Tuổi user</label>
@@ -25,12 +25,9 @@
         name="age" ngModel
         required
         min="0" max="100"
-        #age="ngModel"
+        #age="ngModel" 
         >
-        <!-- <p>{{age.errors | json}}</p> -->
-        <span *ngIf="(age.dirty || age.touched) && age.errors?.['required']" class="text-warning">Nhập tuổi user</span>
-        <span *ngIf="(age.dirty || age.touched) && age.errors?.['min']" class="text-warning"> Nhập tuổi > 0 </span>
-        <span *ngIf="(age.dirty || age.touched) && age.errors?.['max']" class="text-warning"> Nhập tuổi < 100 </span>
+        <app-show-validate [field]="age" key="Tuổi"></app-show-validate>
     </div>
     <br>
     <button class="btn btn-success" [disabled]="!userForm.valid">Submit</button>
