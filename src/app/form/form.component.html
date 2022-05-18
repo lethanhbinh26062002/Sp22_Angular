@@ -1,0 +1,37 @@
+<!-- <p>{{userForm.value | json}}</p>  | json là 1 pipe chuyển đổi từ dạng obj sang string-->
+
+<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+    <div class="form-group">
+        <label for="">Tên user</label>
+        <input 
+        type="text" 
+        class="form-control" 
+        placeholder="Nhập tên user" 
+        name="name" ngModel
+        required minlength="6"
+        #name="ngModel"
+        >
+        <!--<p>{{name.errors | json}}</p>  check lỗi -->
+        <!-- .dirty dùng cho máy tính && .touched dùng cho đt khi ng dùng tương tác vs input thì mời hiển thị lỗi -->
+        <span *ngIf="(name.dirty || name.touched) && name.errors?.['required']" class="text-warning">Nhập tên user</span>
+        <span *ngIf="(name.dirty || name.touched) && name.errors?.['minlength']" class="text-warning">Tên không đc dưới 6 ký tự</span>
+    </div>
+    <div class="form-group">
+        <label for="">Tuổi user</label>
+        <input 
+        type="number" 
+        class="form-control" 
+        placeholder="Nhập tuổi user" 
+        name="age" ngModel
+        required
+        min="0" max="100"
+        #age="ngModel"
+        >
+        <!-- <p>{{age.errors | json}}</p> -->
+        <span *ngIf="(age.dirty || age.touched) && age.errors?.['required']" class="text-warning">Nhập tuổi user</span>
+        <span *ngIf="(age.dirty || age.touched) && age.errors?.['min']" class="text-warning"> Nhập tuổi > 0 </span>
+        <span *ngIf="(age.dirty || age.touched) && age.errors?.['max']" class="text-warning"> Nhập tuổi < 100 </span>
+    </div>
+    <br>
+    <button class="btn btn-success" [disabled]="!userForm.valid">Submit</button>
+</form>
