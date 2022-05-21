@@ -1,13 +1,13 @@
 <!-- <p>{{userForm.value | json}}</p>  | json là 1 pipe chuyển đổi từ dạng obj sang string-->
 
-<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm.value)">
+<form action="" #userForm="ngForm" (ngSubmit)="onSubmit(userForm)">
     <div class="form-group">
         <label for="">Tên user</label>
         <input 
         type="text" 
         class="form-control" 
         placeholder="Nhập tên user" 
-        name="name" ngModel
+        name="name" [(ngModel)] = 'inputValues.name'
         required minlength="5"
         #name="ngModel"
         >
@@ -22,7 +22,7 @@
         type="number" 
         class="form-control" 
         placeholder="Nhập tuổi user" 
-        name="age" ngModel
+        name="age" [(ngModel)] = 'inputValues.age'
         required
         min="0" max="120"
         #age="ngModel" 
@@ -36,7 +36,7 @@
         type="email" 
         class="form-control" 
         placeholder="Nhập email user" 
-        name="email" ngModel
+        name="email" [(ngModel)] = 'inputValues.email'
         required email
         #email="ngModel" 
         >
@@ -46,3 +46,32 @@
     <br>
     <button class="btn btn-success" [disabled]="!userForm.valid">Submit</button>
 </form>
+<div>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên</th>
+                <th>Tuổi</th>
+                <th>Email</th>
+                <th>SĐT</th>
+                <th>Avatar</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.age}}</td>
+                <td>{{user.email}}</td>
+                <td></td>
+                <td></td>
+                <td>
+                    <button class="btn btn-success mx-4" (click)="Edit(user.id)">Sửa</button>
+                    <button class="btn btn-danger" (click)="Delete(user.id)">Xóa</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
