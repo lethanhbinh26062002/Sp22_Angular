@@ -69,7 +69,8 @@ export class UserComponent implements OnInit {
   onParentEdit(userId: number) {
     const userEdit = this.users.find(user => user.id === userId);
     if (userEdit) {
-      this.formValues = {...userEdit}
+      return this.formValues = {...userEdit}
     }
+    return alert('Không tìm thấy user muốn chỉnh sửa')
   }
 }
