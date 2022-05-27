@@ -20,6 +20,7 @@ import { UserFormComponent } from './user/user-form/user-form.component';
 import { HomeComponent } from './home/home.component';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { ClientLayoutComponent } from './layouts/client-layout/client-layout.com
     UserFormComponent,
     HomeComponent,
     LayoutsComponent,
-    ClientLayoutComponent
+    ClientLayoutComponent,
+    AdminLayoutComponent
   ],
   imports: [
     BrowserModule,

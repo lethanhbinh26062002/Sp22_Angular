@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserListComponent } from './user/user-list/user-list.component';
@@ -17,22 +18,37 @@ const routes: Routes = [
       }
     ]
   },
-  // 1. Nếu có children thì ko sử dụng component để render
-  // 2. Nếu vẫn muốn sd component(khung layout) thì trong component thì phải sd <router-outlet></router-outlet>
   {
-    path: 'users',
-    component: UserComponent,
+    path: 'admin',
+    component: AdminLayoutComponent,
     children:[
       {
-        path: 'create',
-        component:UserFormComponent
+        path: '',
+        redirectTo: 'user',
+        pathMatch:'full'
       },
       {
-        path: 'list',
-        component:UserListComponent
+        path: 'user',
+        component:UserComponent
       }
     ]
   }
+  // 1. Nếu có children thì ko sử dụng component để render
+  // 2. Nếu vẫn muốn sd component(khung layout) thì trong component thì phải sd <router-outlet></router-outlet>
+  // {
+  //   path: 'users',
+  //   component: UserComponent,
+  //   children:[
+  //     {
+  //       path: 'create',
+  //       component:UserFormComponent
+  //     },
+  //     {
+  //       path: 'list',
+  //       component:UserListComponent
+  //     }
+  //   ]
+  // }
 ];
 
 @NgModule({
