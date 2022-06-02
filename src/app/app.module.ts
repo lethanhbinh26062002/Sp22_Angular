@@ -21,6 +21,10 @@ import { HomeComponent } from './home/home.component';
 import { LayoutsComponent } from './layouts/layouts.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
+import { AdminProductDetailComponent } from './page/admin/admin-product/admin-product-detail/admin-product-detail.component';
+import { AdminProductListComponent } from './page/admin/admin-product/admin-product-list/admin-product-list.component';
+import { AdminProductFormComponent } from './page/admin/admin-product/admin-product-form/admin-product-form.component';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -40,13 +44,17 @@ import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.compon
     HomeComponent,
     LayoutsComponent,
     ClientLayoutComponent,
-    AdminLayoutComponent
+    AdminLayoutComponent,
+    AdminProductDetailComponent,
+    AdminProductListComponent,
+    AdminProductFormComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    FormsModule // FormsModule đc sử dụng trong các component đã  có bên trên
+    FormsModule, // FormsModule đc sử dụng trong các component đã  có bên trên
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
