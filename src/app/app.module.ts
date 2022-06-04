@@ -25,6 +25,8 @@ import { AdminProductDetailComponent } from './page/admin/admin-product/admin-pr
 import { AdminProductListComponent } from './page/admin/admin-product/admin-product-list/admin-product-list.component';
 import { AdminProductFormComponent } from './page/admin/admin-product/admin-product-form/admin-product-form.component';
 import {HttpClientModule} from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -54,6 +56,7 @@ import {HttpClientModule} from '@angular/common/http';
     AppRoutingModule,
     NgbModule,
     FormsModule, // FormsModule đc sử dụng trong các component đã  có bên trên
+    ReactiveFormsModule,
     HttpClientModule
   ],
   providers: [],
