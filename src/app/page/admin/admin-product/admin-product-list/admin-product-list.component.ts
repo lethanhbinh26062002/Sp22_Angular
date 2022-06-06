@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { ProductService } from '../../../../services/product.service';
 import { Product } from '../../../../type/Product';
 
@@ -12,7 +13,9 @@ export class AdminProductListComponent implements OnInit {
   products: Product[];
 
   // Định nghĩa service dưới tên 1 biến, đã tạo bên services
-  constructor(private productService: ProductService) {
+  constructor(
+    private productService: ProductService,
+    private toastr: ToastrService) {
     this.products = [];
   }
 
@@ -43,6 +46,7 @@ export class AdminProductListComponent implements OnInit {
       this.productService.deleteProduct(id).subscribe((data) => {
         // Cập nhật lại danh sách
         this.onGetList();
+        this.toastr.success('Xóa sản phẩm thành công', 'Success');
       })
     }
 

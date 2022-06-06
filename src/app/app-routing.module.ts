@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CanAccessAdminGuard } from './guards/can-access-admin.guard';
 import { HomeComponent } from './home/home.component';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { ClientLayoutComponent } from './layouts/client-layout/client-layout.component';
@@ -15,6 +16,7 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLayoutComponent,
+    canActivate: [CanAccessAdminGuard],// Kiểm soát việc login vào admin
     children: [
 
       {
@@ -70,6 +72,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [CanAccessAdminGuard]
 })
 export class AppRoutingModule { }

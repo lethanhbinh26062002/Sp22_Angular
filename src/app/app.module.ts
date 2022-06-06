@@ -27,6 +27,8 @@ import { AdminProductFormComponent } from './page/admin/admin-product/admin-prod
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { LoginComponent } from './page/auth/login/login.component';
+import {ToastrModule} from 'ngx-toastr'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 @NgModule({
@@ -59,7 +61,9 @@ import { LoginComponent } from './page/auth/login/login.component';
     NgbModule,
     FormsModule, // FormsModule đc sử dụng trong các component đã  có bên trên
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ToastrModule.forRoot(),
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
