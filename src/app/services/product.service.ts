@@ -13,10 +13,10 @@ export class ProductService {
 
   // Kiểu dữ liệu Observable sẽ giúp lắng nghe API trả về kq
   getProducts (): Observable<Product[]> {
-    return this.http.get<Product[]>(environment.products);
+    return this.http.get<Product[]>(environment.products);  
   }
 
-  getProduct (id: number): Observable<Product> {
+  getProduct (id: string): Observable<Product> {
     return this.http.get<Product>(`${environment.products}/${id}`);
   }
   
@@ -26,7 +26,7 @@ export class ProductService {
 
   // Dữ liệu gửi đi {name: string}, nhận về {id: number, name: string}
   createProduct (data: ProductCreate): Observable<Product> {
-    return this.http.post<Product>(`${environment.products}`, data);
+    return this.http.post<Product>(`${environment.products}/create`, data);
   }
   updateProduct (id: string, data: ProductCreate): Observable<Product> {
     return this.http.patch<Product>(`${environment.products}/${id}`, data);

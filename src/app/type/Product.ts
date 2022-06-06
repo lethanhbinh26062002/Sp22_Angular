@@ -1,5 +1,5 @@
 export type Product = {
-  id: number, // nếu dùng nodejs thì là string
+  _id: string, // nếu dùng nodejs thì là string
   name: string,
   status:number 
 };

@@ -28,8 +28,8 @@ export class AdminProductListComponent implements OnInit {
       this.products = data;
     });
   }
-  onUpdateStatus(productId: number, newStatus: number) {
-    this.productService.updateProduct(`${productId}`, {
+  onUpdateStatus(productId: string, newStatus: number) {
+    this.productService.updateProduct(productId, {
       status: newStatus
     }).subscribe(data => {
       this.onGetList();

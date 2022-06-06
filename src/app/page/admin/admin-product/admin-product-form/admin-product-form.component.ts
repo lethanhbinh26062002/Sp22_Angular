@@ -34,7 +34,7 @@ export class AdminProductFormComponent implements OnInit {
     this.productId = this.activateRoute.snapshot.params['id']; // +'5'
 
     if (this.productId) {
-      this.productService.getProduct(+this.productId).subscribe(data => {
+      this.productService.getProduct(this.productId).subscribe(data => {
         // Cập nhật data cho form (data: {id: 5, name: '...'})
         this.productForm.patchValue({
           name: data.name,

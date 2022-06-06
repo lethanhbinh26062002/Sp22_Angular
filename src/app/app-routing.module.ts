@@ -6,6 +6,7 @@ import { ClientLayoutComponent } from './layouts/client-layout/client-layout.com
 import { AdminProductDetailComponent } from './page/admin/admin-product/admin-product-detail/admin-product-detail.component';
 import { AdminProductFormComponent } from './page/admin/admin-product/admin-product-form/admin-product-form.component';
 import { AdminProductListComponent } from './page/admin/admin-product/admin-product-list/admin-product-list.component';
+import { LoginComponent } from './page/auth/login/login.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { UserListComponent } from './user/user-list/user-list.component';
 import { UserComponent } from './user/user.component';
@@ -36,6 +37,16 @@ const routes: Routes = [
             component: AdminProductDetailComponent
           }, // đẩy /admin/products/id xuống dưới cùng tránh việc nhầm id = 'create'
         ]
+      }
+    ]
+  },
+  {
+    path: '',
+    component: ClientLayoutComponent,
+    children: [
+      {
+        path: 'login',
+        component: LoginComponent
       }
     ]
   }

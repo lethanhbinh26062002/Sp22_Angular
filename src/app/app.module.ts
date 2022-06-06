@@ -26,6 +26,7 @@ import { AdminProductListComponent } from './page/admin/admin-product/admin-prod
 import { AdminProductFormComponent } from './page/admin/admin-product/admin-product-form/admin-product-form.component';
 import {HttpClientModule} from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './page/auth/login/login.component';
 
 
 @NgModule({
@@ -49,7 +50,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     AdminLayoutComponent,
     AdminProductDetailComponent,
     AdminProductListComponent,
-    AdminProductFormComponent
+    AdminProductFormComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
